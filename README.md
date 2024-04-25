@@ -19,4 +19,6 @@ La búsqueda debounced en CineNow permitirá a los usuarios realizar consultas d
 
 La autenticación es fundamental para personalizar y proteger la experiencia del usuario en CineNow. Permitirá a los usuarios acceder a perfiles personalizados, administrar sus suscripciones, configuraciones de visualización, listas de películas favoritas, y participar de manera segura en la comunidad.
 
+#Demo
 
+![Uploading CinenowPreview.gif…]()
