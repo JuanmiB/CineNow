@@ -1,33 +1,27 @@
+/* ------------Variables globales------------V */
 :root {
     --bg-black: #181419;
-    /* --bg-red: #9f3647; */
-    --bg-red: #003344
+    --bg-darkblue: #003344;
+    --ft-white: #f5f4ed;
 }
 
+/* ------------Configuraciones globales------------V */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    color: var(--ft-white);
     font-family: "Nunito", sans-serif;
-
 }
 
 body {
     background: var(--bg-black);
 }
 
-header,
-footer {
-    background: var(--bg-red);
-    min-height: 80px;
-}
-
-main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+h3 {
+    font-size: 36px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
 a {
@@ -37,10 +31,22 @@ a {
 img {
     height: 300px;
     width: 200px;
+    border-radius: 5px;
 }
 
 ul {
     list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+/* ------------Encabezado------------V */
+header,
+footer {
+    background: var(--bg-darkblue);
+    min-height: 80px;
 }
 
 .nav-container {
@@ -59,6 +65,15 @@ ul {
     }
 }
 
+
+/* ------------Main y secciones------------ */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .main-bg-imagen {
     background: linear-gradient(to right top, #0000008a, #0000008a), url('assets/img/banner-bg.jpg') no-repeat center/cover;
     min-height: 30vh;
@@ -67,21 +82,22 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 
-    .banner-title {
+    .main-title {
         font-size: 3.5rem;
         max-width: 750px;
     }
 
-    .banner-subtitle {
-        font-size: 1.5rem
+    .main-subtitle {
+        font-size: 1.5rem;
     }
 
-    .banner-btn {
+    .main-btn {
         padding: 10px 20px;
         margin-top: 15px;
         margin-bottom: 10px;
-        background-color: var(--bg-red);
+        background-color: var(--bg-darkblue);
         border: none;
         border-radius: 5px;
         color: white;
@@ -90,23 +106,24 @@ ul {
     }
 }
 
-.container {
+.main-bg-imagen .main-btn:hover {
+    background-color: #0c4a5e;
+}
+
+
+
+
+
+.search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px 30px;
 
-
     .title-search {
         text-align: center;
         margin-top: 20px;
         font-size: 2.5rem;
-    }
-
-    .tendencias-title {
-        font-size: 36px;
-        padding: 10px;
-        margin-bottom: 15px;
     }
 
     .tendencias-list {
@@ -117,23 +134,19 @@ ul {
         place-items: center;
         gap: 15px;
         list-style: none;
-
-        .box-film {
-            height: 300px;
-            width: 200px;
-            border: solid 1px red;
-        }
     }
 
-    .search-container {
+    .form-container {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 25px;
         margin-bottom: 25px;
         border: solid 1px gray;
         border-radius: 20px;
         padding: 2px;
-        width: 40%;
+        max-width: 55%;
+        min-width: 40%;
 
         .btn-secondary {
             width: 40px;
@@ -146,22 +159,19 @@ ul {
             justify-content: center;
             align-items: center;
             display: flex;
+            cursor: pointer;
         }
 
-       
-    }
-
-    form input {
-        border: none;
-        border-radius: 15px;
-        color: #000000;
-        font-size: 1.2rem;
-        height: 50px;
-        outline: none;
-        padding: 0px 20px;
-        background-color: transparent;
-        width: 100%;
-    
+        input {
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            height: 30px;
+            outline: none;
+            padding: 0px 20px;
+            background-color: transparent;
+            width: 100%;
+        }
     }
 }
 
@@ -186,12 +196,31 @@ ul {
 }
 
 
+.aclamadas-container .aclamadas::-webkit-scrollbar {
+    width: 1px;
+}
 
+.aclamadas-container .aclamadas::-webkit-scrollbar-track {
+    background-color: var(--bg-black);
+}
+
+.aclamadas-container .aclamadas::-webkit-scrollbar-thumb {
+    background-color: var(--bg-darkblue);
+    border-radius: 6px;
+}
+
+/* ------------Pie de página------------ */
 footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    h4 {
+        font-size: 18px;
+        text-align: center;
+        margin: 5px 0px 10px 0px;
+    }
 
     .redes-list {
         display: flex;
@@ -207,64 +236,78 @@ footer {
             padding: 5px;
             border-radius: 15px;
         }
-
-        li:hover {
-            cursor: pointer;
-            opacity: 0.6;
-        }
-    }
-
-    h4 {
-        font-size: 18px;
-        text-align: center;
-        margin: 5px 0px 10px 0px
     }
 }
 
+footer .redes-list li:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
 
 
-
-/* MEDIA MOBILE */
-@media (width >=680px) {
-    footer {
-        .container-footer {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-        }
+/* ------------Media queries------------ */
+@media (min-width: 680px) {
+    footer .container-footer {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
     }
 }
 
-@media (width >=780px) {
+@media (min-width: 780px) {
+
     .nav-container {
         flex-direction: row;
         justify-content: space-between;
+
         ul {
             flex-direction: row;
         }
     }
 
+
     .main-bg-imagen {
         height: 70vh;
     }
+
+    .nav-container a {
+        position: relative;
+        padding-bottom: 5px;
+    }
+
+    .nav-container a::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: #11617c;
+        transition: all 0.1s ease-in;
+    }
+
+    .nav-container a:hover::after {
+        width: 100%;
+        left: 0;
+    }
 }
 
-
-
-/* Estilos para la barra de desplazamiento en navegadores webkit (Chrome, Safari) */
-.aclamadass::-webkit-scrollbar {
-    width: 12px;
-    /* Ancho de la barra de desplazamiento */
+/* ------------Animaciones------------ */
+.emoji-fire {
+    display: inline-block;
+    animation: meneo 0.5s infinite alternate ease-in-out;
+    will-change: transform;
+    /* will-change: Avisa al navegador que este elemento cambiará sus transformaciones */
 }
 
-.aclamadass::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    /* Color de fondo de la barra de desplazamiento */
-}
+@keyframes meneo {
 
-.aclamadass::-webkit-scrollbar-thumb {
-    background-color: var(--bg-red);
-    /* Color del pulgar de la barra de desplazamiento */
-    border-radius: 6px;
-    /* Borde redondeado para el pulgar */
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    68% {
+        transform: rotate(5deg);
+    }
 }
